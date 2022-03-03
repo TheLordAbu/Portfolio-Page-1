@@ -1,0 +1,102 @@
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin rainbowLinGrad {
+  background-image: linear-gradient(
+    60deg,
+    $color-primary-light,
+    $color-primary-dark,
+    $color-blue-light,
+    $color-blue-dark
+  );
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin glowText {
+  @include rainbowLinGrad;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin textLine {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 29rem;
+    width: 50rem;
+    height: 1px;
+    margin-left: 1.5rem;
+    background-color: $color-light-grey;
+  }
+}
+
+//  MEDIA QUERY MANAGER
+/* 
+0-600PX: PHONE
+600 - 900PX: TABLET PORTRAIT
+900 - 1200PX: TABLET LANDSCAPE 
+1200 - 1800PX: IS WHERE NORMAL STYLES APPLY
+1800PX + : BIG DESKTOP 
+
+$breakpoint argument choices:
+- phone 
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + Typography > General Layout + Grid > Page Layout > Components
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 35em) {
+      @content;
+    } //560px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+
+  @if $breakpoint == laptop {
+    @media only screen and (max-width: 93.75em) {
+      @content;
+    } //1500px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800px
+  }
+}

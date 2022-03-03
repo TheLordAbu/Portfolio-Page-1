@@ -1,0 +1,62 @@
+.heading-primary {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: rgba($color-white, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+
+  @include respond(laptop) {
+    font-size: 3.5rem;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: $color-light-grey;
+
+  @include respond(laptop) {
+    font-size: 3.2rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: $color-light-grey;
+
+  @include respond(laptop) {
+    font-size: 2rem;
+  }
+}
+
+.animated-text span::before {
+  content: "";
+  font-weight: 600;
+  @include glowText;
+  animation: textChange infinite 3s;
+}
+
+.glow__text {
+  // display: block;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.8rem;
+  @include rainbowLinGrad;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.paragraph {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $color-light-grey;
+
+  @include respond(laptop) {
+    font-size: $def-font-size;
+  }
+}

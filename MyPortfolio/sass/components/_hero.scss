@@ -1,0 +1,69 @@
+.hero {
+  // transition: all 450ms ease;
+  position: relative;
+
+  &__wave {
+    &:before {
+      content: "";
+      display: inline-block;
+      animation: rotate 2s infinite ease;
+      animation-duration: 2s;
+    }
+  }
+  &__text {
+    background-color: $color-grey-1;
+    height: 40rem;
+    width: 70rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    // -webkit-box-shadow: 27px 27px 2px -1px rgba(0, 0, 0, 0.75);
+    // -moz-box-shadow: 27px 27px 2px -1px rgba(0, 0, 0, 0.75);
+    // box-shadow: 27px 27px 2px -1px rgba(0, 0, 0, 0.75);
+
+    // box-shadow: -1px 33px 32px 12px rgba(0, 0, 0, 0.51);
+    // -webkit-box-shadow: -1px 33px 32px 12px rgba(0, 0, 0, 0.51);
+    // -moz-box-shadow: -1px 33px 32px 12px rgba(0, 0, 0, 0.51);
+
+    // box-shadow: -1px 36px 400px 8px rgba(0, 0, 0, 1);
+    // -webkit-box-shadow: -1px 36px 400px 8px rgba(0, 0, 0, 1);
+    // -moz-box-shadow: -1px 36px 400px 8px rgba(0, 0, 0, 1);
+
+    box-shadow: -2px 4px 400px 6px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: -2px 4px 400px 6px rgba(0, 0, 0, 1);
+    -moz-box-shadow: -2px 4px 400px 6px rgba(0, 0, 0, 1);
+
+    transition: all 0.5s ease-in;
+    position: relative;
+
+    @include respond(big-desktop) {
+      height: 45rem;
+      width: 80rem;
+
+      .hero__paragraph {
+        font-size: 1.8rem;
+      }
+    }
+
+    @include respond(phone) {
+      height: 50rem;
+      width: 55rem;
+    }
+  }
+  &__img {
+    display: inline-block;
+    width: 30rem;
+  }
+
+  &__paragraph {
+    width: 80%;
+  }
+}
+button {
+  a {
+    font-size: 1.5rem;
+  }
+
+  a {
+    padding: 0.5rem;
+  }
+}

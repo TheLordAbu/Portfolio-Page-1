@@ -1,0 +1,261 @@
+.portfolio {
+  background-color: $color-opaque-grey;
+
+  &__container {
+    max-width: 120rem;
+    margin: 0 auto;
+
+    // &:last-child {
+    //   margin-bottom: 10rem;
+
+    //   @include respond(laptop) {
+    //     margin-bottom: 5rem;
+    //   }
+    // }
+  }
+
+  &__card-img {
+    // margin-bottom: 60rem;
+    position: relative;
+    border-radius: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+    background-color: $color-blue-light;
+
+    &:hover {
+      transform: translateY(-0.3rem) scale(101%);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      border-radius: 0.5rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      transform: translate(-53%, -45%);
+      width: 100%;
+      padding-bottom: 60%;
+      border: 3px solid transparent;
+      border-image: linear-gradient(
+        to left bottom,
+        $color-primary-light,
+        $color-primary-dark,
+        $color-blue-light,
+        $color-blue-dark
+      );
+      border-image-slice: 1;
+      border-radius: 0.5rem;
+      z-index: -1;
+    }
+
+    &::after {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(9, 88, 102, 0.6);
+      z-index: 100;
+      transition: all 0.4s ease-in;
+    }
+
+    &:hover::after {
+      background-color: transparent;
+    }
+  }
+
+  &__card_img {
+    width: 100rem;
+    aspect-ratio: 1 / 0.6;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    filter: brightness(0.7);
+  }
+
+  &__content {
+    background-color: $color-grey-1;
+    -webkit-box-shadow: 6px 10px 29px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px 10px 29px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 10px 29px -13px rgba(0, 0, 0, 0.75);
+
+    // display: block;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color: $color-light-grey;
+
+    margin-bottom: 2rem;
+    z-index: 1000;
+
+    @include respond(laptop) {
+      padding: 1rem 1.5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  &__cnt-1,
+  &__cnt-3 {
+    transform: translateX(-10%);
+    text-align: right;
+  }
+  &__cnt-2 {
+    transform: translateX(10%);
+  }
+  &__cnt-3 {
+    transform: translate(-10%, -40%);
+
+    @include respond(laptop) {
+      transform: translate(-10%, -50%);
+    }
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    color: rgba($color-white, 0.7);
+
+    @include respond(laptop) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.6rem;
+
+    @include respond(laptop) {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    span {
+      @include glowText;
+      // color: $color-blue-light;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-align: right;
+
+    a {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.project-box {
+  background-color: rgba($color-grey-1, 0.8);
+  font-size: 1.5rem;
+  height: 35rem;
+  padding: 3rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  transition: transform 0.3s ease;
+
+  @include respond(laptop) {
+    padding: 2rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 9rem;
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+  }
+
+  &__link {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: $color-light-grey;
+    margin: 0.6rem 0;
+    display: block;
+
+    @include respond(laptop) {
+      font-size: 2rem;
+    }
+
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-blue-light
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &__icon {
+    font-size: 8rem;
+    margin-bottom: 0.6rem;
+    // display: inline-block;
+    background-image: linear-gradient(
+      to left,
+      $color-primary-light,
+      $color-blue-light
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    @include respond(laptop) {
+      font-size: 4.5rem;
+    }
+
+    @include respond(tab-land) {
+      margin-bottom: 0.4rem;
+    }
+
+    @include respond(tab-port) {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  &__text {
+    color: rgba($color-white, 0.8);
+    font-size: 1.5rem;
+
+    @include respond(laptop) {
+      font-size: 1.6rem;
+    }
+
+    @include respond(tab-land) {
+      margin-bottom: 2rem;
+    }
+
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+
+  &__icon-box {
+    display: flex;
+    justify-content: space-evenly;
+
+    &__icon {
+      // color: $color-meduim-grey;
+      color: $color-meduim-grey;
+      font-size: 4rem;
+
+      @include respond(laptop) {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}

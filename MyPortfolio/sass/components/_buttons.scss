@@ -1,0 +1,158 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+
+  &__glow {
+    border-radius: 1rem;
+    padding: 1.2rem 2.6rem;
+    transition: all 500ms ease;
+    @include rainbowLinGrad;
+    outline: none;
+    border: none;
+    position: relative;
+    transition: all 450ms;
+    display: inline-block;
+    margin-top: none;
+
+    &:hover {
+      transform: translateY(-0.3rem);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: calc(100% - 0.6rem);
+      height: calc(100% - 0.3rem);
+      border-radius: 1rem;
+      top: 0.11rem;
+      left: 0.25rem;
+      background: $color-bg-grey;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      @include rainbowLinGrad;
+      top: 0;
+      left: 0;
+      filter: blur(0.1rem);
+      border-radius: 1rem;
+    }
+
+    &:hover::before {
+      filter: blur(0.5rem);
+    }
+  }
+
+  span {
+    text-decoration: none;
+    font-size: $def-font-size;
+    color: $color-white;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    background: transparent;
+  }
+}
+
+button {
+  border: none;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+.fall:hover,
+.fall:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: $color-primary-light,
+  fall: $color-blue-light,
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+button {
+  cursor: pointer;
+  color: var(--color);
+  transition: 0.25s;
+  border-radius: 1rem;
+
+  &:hover,
+  &:focus {
+    border-color: var(--color);
+    color: #fff;
+  }
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1.2rem 2rem;
+  text-align: center;
+
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+
+  display: flex;
+  align-items: center;
+
+  @include respond(laptop) {
+    font-size: 1.4rem;
+    padding: 1rem 1.8rem;
+  }
+
+  a {
+    color: $color-primary-light;
+
+    @include respond(laptop) {
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
+.dl-icon {
+  margin-right: 0.1rem;
+  font-size: 2rem;
+
+  @include respond(tab-port) {
+    font-size: 1.2rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
+}

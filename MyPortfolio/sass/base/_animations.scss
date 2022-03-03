@@ -1,0 +1,68 @@
+@keyframes textChange {
+  0% {
+    content: "Build";
+  }
+
+  25% {
+    content: "Build";
+  }
+
+  50% {
+    content: "Design";
+  }
+
+  100% {
+    content: "Develop";
+  }
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    content: "👋🏽";
+    transform: rotate(0);
+  }
+  50% {
+    content: "👋🏽";
+    transform: rotate(50deg);
+  }
+  100% {
+    content: "👋🏽";
+    transform: rotate(0);
+  }
+}
